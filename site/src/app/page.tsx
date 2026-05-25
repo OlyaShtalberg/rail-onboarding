@@ -10,7 +10,13 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 /* ============================================================
    ORG CHART — drawn in Rezolve brand colors, not loaded as image.
    ============================================================ */
-const orgChart = {
+type OrgBranch = {
+  lead: { name: string; role: string };
+  team: { name: string; role: string }[];
+  highlighted?: boolean;
+};
+
+const orgChart: { ceo: { name: string; role: string }; branches: OrgBranch[] } = {
   ceo: { name: "Salman Ahmad", role: "Chief AI Officer" },
   branches: [
     { lead: { name: "Senka Krivic", role: "Principal Scientist" }, team: [] },
@@ -29,6 +35,7 @@ const orgChart = {
     },
     {
       lead: { name: "Vladimir Gorovoy", role: "LLM" },
+      highlighted: true,
       team: [
         { name: "Ruban Agresh", role: "Data Scientist" },
         { name: "Preeti Kumar", role: "Data Scientist" },
@@ -37,6 +44,7 @@ const orgChart = {
     },
     {
       lead: { name: "Yuri Vorontsov", role: "Benchmarking + Evals" },
+      highlighted: true,
       team: [
         { name: "Anna Platonov", role: "Data Engineer" },
         { name: "Anastasia Vorontsov", role: "ML Engineer" },
@@ -67,11 +75,11 @@ const orgChart = {
    PETS
    ============================================================ */
 const pets: { file: string; ownerEn: string; ownerRu: string }[] = [
-  { file: "Koshka.jpeg",    ownerEn: "Olya's",  ownerRu: "Оли" },
-  { file: "Tenzor.jpeg",    ownerEn: "Felix's", ownerRu: "Феликса" },
-  { file: "Marfa.jpeg",     ownerEn: "Yuri's",  ownerRu: "Юры" },
-  { file: "Leela.jpeg",     ownerEn: "Sam's",   ownerRu: "Сэма" },
-  { file: "Tutanhamon.jpeg", ownerEn: "Anya's", ownerRu: "Ани" },
+  { file: "Koshka.jpeg",    ownerEn: "behind Olya's screen",  ownerRu: "за экраном Оли" },
+  { file: "Tenzor.jpeg",    ownerEn: "behind Felix's screen", ownerRu: "за экраном Феликса" },
+  { file: "Marfa.jpeg",     ownerEn: "behind Yuri's screen",  ownerRu: "за экраном Юры" },
+  { file: "Leela.jpeg",     ownerEn: "behind Sam's screen",   ownerRu: "за экраном Сэма" },
+  { file: "Tutanhamon.jpeg", ownerEn: "behind Anya's screen", ownerRu: "за экраном Ани" },
 ];
 
 /* ============================================================
@@ -326,6 +334,21 @@ const content = {
       chartTitle: "Org chart",
       tableTitle: "Who to ask about what",
       cols: ["Person", "Role", "Good to ask about"],
+      glossaryHint: (
+        <>
+          <strong>Yuri and Vladimir's teams are highlighted</strong> — that's where you'll be plugged in. More on each
+          person (domain, what they own, what to ask them about) is in the{" "}
+          <a
+            href={`${BASE}/docs/glossary.md`}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[var(--color-blue)] hover:underline"
+          >
+            glossary
+          </a>
+          .
+        </>
+      ),
     },
     downloads: {
       overline: "Downloads",
@@ -490,6 +513,21 @@ const content = {
       chartTitle: "Org chart",
       tableTitle: "Кому что задавать",
       cols: ["Человек", "Роль", "Стоит спросить"],
+      glossaryHint: (
+        <>
+          <strong>Команды Юры и Володи выделены</strong> — туда тебя подключим. Подробнее по каждому человеку (область,
+          что ведёт, что можно спрашивать) — в{" "}
+          <a
+            href={`${BASE}/docs/glossary.md`}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[var(--color-blue)] hover:underline"
+          >
+            glossary
+          </a>
+          .
+        </>
+      ),
     },
     downloads: {
       overline: "Скачать",
@@ -599,26 +637,49 @@ function OrgChart() {
 
       {/* Sub-leads grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {orgChart.branches.map((branch, i) => (
-          <div key={i} className="flex flex-col bg-white rounded-xl overflow-hidden border border-[var(--color-border)]">
-            <div className="bg-gradient-to-br from-[var(--color-blue)] to-[#3a7bb8] text-white px-4 py-3">
-              <p className="font-bold text-[14px]" style={{ fontFamily: "var(--font-manrope)" }}>
-                {branch.lead.name}
-              </p>
-              <p className="text-[11px] uppercase tracking-[1.2px] opacity-90 mt-0.5">{branch.lead.role}</p>
+        {orgChart.branches.map((branch, i) => {
+          const isHi = branch.highlighted;
+          return (
+            <div
+              key={i}
+              className={
+                isHi
+                  ? "flex flex-col bg-white rounded-xl overflow-hidden border-[3px] border-[var(--color-cyan)] shadow-[0_8px_24px_rgba(0,200,232,0.25)] -translate-y-1"
+                  : "flex flex-col bg-white rounded-xl overflow-hidden border border-[var(--color-border)] opacity-70"
+              }
+            >
+              <div
+                className={
+                  isHi
+                    ? "bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-blue)] text-white px-4 py-3.5"
+                    : "bg-gradient-to-br from-[var(--color-blue)] to-[#3a7bb8] text-white px-4 py-3"
+                }
+              >
+                <p className="font-bold text-[14px]" style={{ fontFamily: "var(--font-manrope)" }}>
+                  {branch.lead.name}
+                </p>
+                <p className="text-[11px] uppercase tracking-[1.2px] opacity-90 mt-0.5">{branch.lead.role}</p>
+              </div>
+              {branch.team.length > 0 && (
+                <ul className="p-3 space-y-1.5">
+                  {branch.team.map((m, j) => (
+                    <li
+                      key={j}
+                      className={
+                        isHi
+                          ? "text-[12px] py-1.5 px-2 border-l-[2px] border-[var(--color-cyan)] bg-[var(--color-bg)]"
+                          : "text-[12px] py-1.5 px-2 border-l-[2px] border-[var(--color-blue)] bg-[var(--color-bg)]"
+                      }
+                    >
+                      <span className="font-bold text-[var(--color-navy)]">{m.name}</span>
+                      <span className="text-[var(--color-gray)]"> · {m.role}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-            {branch.team.length > 0 && (
-              <ul className="p-3 space-y-1.5">
-                {branch.team.map((m, j) => (
-                  <li key={j} className="text-[12px] py-1.5 px-2 border-l-[2px] border-[var(--color-blue)] bg-[var(--color-bg)]">
-                    <span className="font-bold text-[var(--color-navy)]">{m.name}</span>
-                    <span className="text-[var(--color-gray)]"> · {m.role}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
@@ -847,6 +908,7 @@ export default function Home() {
         <div className="max-w-[1100px] mx-auto px-6">
           <SectionHeader title={t.team.h2} />
           <OrgChart />
+          <p className="mt-10 max-w-[760px] text-[15px] leading-[1.6]">{t.team.glossaryHint}</p>
         </div>
       </section>
 
