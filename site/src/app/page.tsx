@@ -220,7 +220,7 @@ const content = {
       titleHighlight: "RAiL",
       titleB: ".",
       titleLine2: "Glad you're here.",
-      body: "This page has everything you need to get started — access, channels, recurring calls, working norms, the team, and how to wire up your AI agent. Last updated 19.05.26 · Contact @Olya Shtalberg.",
+      body: "This page has everything you need to get started — access, channels, recurring calls, working norms, the team, and how to wire up your AI agent. Anything unclear, missing, or just confusing — ping @Olya Shtalberg on Slack. That's the catch-all contact for any question. Last updated 25.05.26.",
     },
     helicopter: {
       h2: "Helicopter View — what we're building",
@@ -263,7 +263,7 @@ const content = {
     },
     access: {
       h2: "Access & Tools",
-      sub: "Click the link or ask the person on the right.",
+      sub: "The main tools you'll use day-to-day — Slack, GitHub, Jira, Confluence, Notion, Azure, JupyterHub, BambooHR, Teams. Click the link or ask the person on the right.",
       cols: ["Tool", "Link", "Access via"],
     },
     repos: {
@@ -388,7 +388,7 @@ const content = {
         </>
       ),
     },
-    footer: { updated: "Last updated: 25.05.2026 · Contact: @Olya Shtalberg" },
+    footer: { updated: "Last updated: 25.05.2026 · Any question — @Olya Shtalberg on Slack" },
   },
   ru: {
     nav: { hello: "Welcome", access: "Доступы", team: "Команда", downloads: "Скачать" },
@@ -399,7 +399,7 @@ const content = {
       titleHighlight: "RAiL",
       titleB: ".",
       titleLine2: "Рады, что ты с нами.",
-      body: "На этой странице есть всё, что нужно — доступы, каналы, созвоны, рабочие нормы, команда и как подключить AI-агента. Обновлено 19.05.26 · Контакт @Olya Shtalberg.",
+      body: "На этой странице есть всё, что нужно — доступы, каналы, созвоны, рабочие нормы, команда и как подключить AI-агента. Что непонятно, чего не хватает или просто хочется уточнить — пиши @Olya Shtalberg в Slack. Я по любым вопросам. Обновлено 25.05.26.",
     },
     helicopter: {
       h2: "Helicopter View — что мы строим",
@@ -442,7 +442,7 @@ const content = {
     },
     access: {
       h2: "Доступы и инструменты",
-      sub: "Жми по ссылке или спроси у человека справа.",
+      sub: "Основные инструменты, которыми будешь пользоваться ежедневно — Slack, GitHub, Jira, Confluence, Notion, Azure, JupyterHub, BambooHR, Teams. Жми по ссылке или спроси у человека справа.",
       cols: ["Инструмент", "Ссылка", "Доступ через"],
     },
     repos: {
@@ -567,7 +567,7 @@ const content = {
         </>
       ),
     },
-    footer: { updated: "Последнее обновление: 25.05.2026 · Контакт: @Olya Shtalberg" },
+    footer: { updated: "Последнее обновление: 25.05.2026 · По любым вопросам — @Olya Shtalberg в Slack" },
   },
 } as const;
 
