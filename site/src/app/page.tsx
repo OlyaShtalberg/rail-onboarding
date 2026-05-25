@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 type Lang = "en" | "ru";
 
 const REPO_URL = "https://github.com/rezolved/rail-onboarding";
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 /* ============================================================
    ORG CHART — drawn in Rezolve brand colors, not loaded as image.
@@ -820,7 +821,7 @@ export default function Home() {
               <p className="overline mb-2" style={{ color: "var(--color-cyan)" }}>{t.downloads.agent.title}</p>
               <p className="max-w-[420px] mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>{t.downloads.agent.sub}</p>
               <a
-                href="/downloads/rail-agent-pack.zip"
+                href={`${BASE}/downloads/rail-agent-pack.zip`}
                 download
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[var(--color-navy)] font-bold text-[14px] hover:bg-[var(--color-cyan)] transition-colors"
               >
@@ -838,7 +839,7 @@ export default function Home() {
               <p className="overline mb-2" style={{ color: "var(--color-cyan)" }}>{t.downloads.brand.title}</p>
               <p className="max-w-[420px] mb-6" style={{ color: "rgba(255,255,255,0.8)" }}>{t.downloads.brand.sub}</p>
               <a
-                href="/downloads/rezolve-brand-assets.zip"
+                href={`${BASE}/downloads/rezolve-brand-assets.zip`}
                 download
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[var(--color-navy)] font-bold text-[14px] hover:bg-[var(--color-cyan)] transition-colors"
               >
@@ -876,7 +877,7 @@ export default function Home() {
                 <div key={pet.file} className="flex flex-col items-center">
                   <div className="w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-full overflow-hidden border-[3px] border-white shadow-[0_8px_20px_rgba(184,148,92,0.25)] hover:shadow-[0_12px_28px_rgba(184,148,92,0.4)] transition-shadow">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={`/pets/${pet.file}`} alt={name} className="w-full h-full object-cover" />
+                    <img src={`${BASE}/pets/${pet.file}`} alt={name} className="w-full h-full object-cover" />
                   </div>
                   <p className="mt-3 text-[14px] font-bold text-[var(--color-navy)]" style={{ fontStyle: "italic" }}>
                     {name}
