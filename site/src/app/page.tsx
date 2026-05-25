@@ -217,15 +217,10 @@ const content = {
     helicopter: {
       h2: "Helicopter View — what we're building",
       tagline: "We're Rezolve AI Lab — the R&D arm inside Rezolve.",
-      diagram: {
-        outer: { title: "Rezolve", subtitle: "ecommerce company" },
-        middle: { title: "Rezolve AI Lab (RAiL)", subtitle: "R&D arm" },
-        inner: { title: "Our team", subtitle: "Fine-tuning · MaaS" },
-      },
       facts: [
         { label: "Who we are", value: "R&D lab inside Rezolve" },
         { label: "What we do", value: "Fine-tune models · multi tool calling" },
-        { label: "Where they ship", value: "Brainpowa Model Garden + Microsoft Azure AI Foundry" },
+        { label: "Where they ship", value: "Brainpowa Model Garden" },
       ],
       para1: (
         <>
@@ -243,8 +238,7 @@ const content = {
         <>
           We fine-tune <strong>models</strong> — for search, multi tool calling, and conversation — and assemble them
           into <strong>composable building blocks</strong> that plug into different products, for different customers,
-          across different verticals. Hosted in <strong>Brainpowa Model Garden</strong>. Distributed externally via{" "}
-          <strong>Microsoft Azure AI Foundry</strong> as Models-as-a-Service (3 models published, more coming).
+          across different verticals. Hosted in <strong>Brainpowa Model Garden</strong>.
         </>
       ),
       para4: (
@@ -281,7 +275,7 @@ const content = {
           >
             quepasa-team
           </a>
-          . Confirm which repos matter for your first task with @Yuri Vorontsov.
+          . Confirm which repos matter for your first task with @Yuri Vorontsov or @Vladimir Gorovoy.
         </>
       ),
     },
@@ -304,6 +298,7 @@ const content = {
       ownershipBody: "By default, accepting a task means accepting ownership and responsibility for the outcome. The ideal task acknowledgement:",
       steps: [
         "Rephrase the task in your own words — confirm we mean the same thing.",
+        "Question and push back. You don't just have the right to disagree — you have the responsibility to. Challenge the task, propose alternatives.",
         "Propose your own timeline.",
         "Own the outcome: if the proposed tools don't get you there — come back to the requester with questions or problems, propose another path.",
         "When done, post in Slack with tags of potentially interested people.",
@@ -342,7 +337,7 @@ const content = {
         button: "Download AI pack (ZIP, 331 KB)",
         files: [
           "onboarding-rail.md — this page in markdown",
-          "glossary.md — 45 people + 80 technical terms",
+          "glossary.md — 45 people + 80 technical terms · RAG context for your agent",
           "general-skills.md — superpowers skills",
           "team-skills.md — teams-outlook-setup",
           "README.md — bundle overview",
@@ -386,15 +381,10 @@ const content = {
     helicopter: {
       h2: "Helicopter View — что мы строим",
       tagline: "Мы Rezolve AI Lab — R&D-подразделение внутри Rezolve.",
-      diagram: {
-        outer: { title: "Rezolve", subtitle: "ecommerce-компания" },
-        middle: { title: "Rezolve AI Lab (RAiL)", subtitle: "R&D-подразделение" },
-        inner: { title: "Наша команда", subtitle: "Fine-tuning · MaaS" },
-      },
       facts: [
         { label: "Кто мы", value: "R&D-лаборатория внутри Rezolve" },
         { label: "Что делаем", value: "Файнтюним модели · multi tool calling" },
-        { label: "Где они живут", value: "Brainpowa Model Garden + Microsoft Azure AI Foundry" },
+        { label: "Где они живут", value: "Brainpowa Model Garden" },
       ],
       para1: (
         <>
@@ -412,8 +402,7 @@ const content = {
         <>
           Мы файнтюним <strong>модели</strong> — для поиска, multi tool calling и диалога — и собираем из них{" "}
           <strong>составные кирпичики</strong>, которые подключаются к разным продуктам, для разных клиентов, в разных
-          вертикалях. Хостинг в <strong>Brainpowa Model Garden</strong>. Дистрибуция наружу через{" "}
-          <strong>Microsoft Azure AI Foundry</strong> как Models-as-a-Service (3 модели уже опубликованы, ещё в работе).
+          вертикалях. Хостинг в <strong>Brainpowa Model Garden</strong>.
         </>
       ),
       para4: (
@@ -450,7 +439,7 @@ const content = {
           >
             quepasa-team
           </a>
-          . Какие репо нужны для твоей первой задачи — уточни у @Yuri Vorontsov.
+          . Какие репо нужны для твоей первой задачи — уточни у @Yuri Vorontsov или @Vladimir Gorovoy.
         </>
       ),
     },
@@ -473,6 +462,7 @@ const content = {
       ownershipBody: "По умолчанию, принимая задачу — принимаешь оунершип и ответственность за результат. Идеальный ответ на задачу:",
       steps: [
         "Переспроси задачу в своей формулировке — убедись, что задачу понимаем одинаково.",
+        "Сомневайся и возражай. У тебя не просто право, а обязанность не соглашаться. Квесчени задачи, предлагай альтернативы.",
         "Предложи свой таймлайн.",
         "Неси ответственность за результат: если результат не достигается предложенными инструментами — приди к репортёру с вопросами и проблемами, предложи другое решение.",
         "По завершению — пиши в Slack с тегами потенциально заинтересованных лиц.",
@@ -511,7 +501,7 @@ const content = {
         button: "Скачать AI pack (ZIP, 331 KB)",
         files: [
           "onboarding-rail.md — эта страница в markdown",
-          "glossary.md — 45 человек + 80 терминов",
+          "glossary.md — 45 человек + 80 терминов · RAG для твоего агента",
           "general-skills.md — superpowers скиллы",
           "team-skills.md — teams-outlook-setup",
           "README.md — обзор пакета",
@@ -705,40 +695,6 @@ export default function Home() {
           >
             {t.helicopter.tagline}
           </p>
-
-          {/* Nested diagram: Rezolve → RAiL → Our team */}
-          <div className="mb-12 max-w-[680px] mx-auto sm:mx-0">
-            <div className="rounded-2xl bg-[var(--color-bg)] border border-[var(--color-border)] p-5 md:p-7">
-              <div className="text-center mb-4">
-                <p className="text-[18px] font-bold text-[var(--color-charcoal)]" style={{ fontFamily: "var(--font-manrope)" }}>
-                  {t.helicopter.diagram.outer.title}
-                </p>
-                <p className="text-[11px] uppercase tracking-[1.5px] text-[var(--color-gray)] mt-0.5">
-                  {t.helicopter.diagram.outer.subtitle}
-                </p>
-              </div>
-
-              <div className="rounded-xl bg-white border-[2px] border-[var(--color-blue)] p-5 md:p-6">
-                <div className="text-center mb-4">
-                  <p className="text-[17px] font-bold text-[var(--color-blue)]" style={{ fontFamily: "var(--font-manrope)" }}>
-                    {t.helicopter.diagram.middle.title}
-                  </p>
-                  <p className="text-[11px] uppercase tracking-[1.5px] text-[var(--color-gray)] mt-0.5">
-                    {t.helicopter.diagram.middle.subtitle}
-                  </p>
-                </div>
-
-                <div className="rounded-lg bg-[var(--color-navy)] text-white px-4 py-3.5 text-center mx-4 sm:mx-10">
-                  <p className="text-[15px] font-bold" style={{ fontFamily: "var(--font-manrope)" }}>
-                    {t.helicopter.diagram.inner.title}
-                  </p>
-                  <p className="text-[10.5px] uppercase tracking-[1.5px] opacity-80 mt-0.5">
-                    {t.helicopter.diagram.inner.subtitle}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
           <div className="grid sm:grid-cols-3 gap-5 mb-10 max-w-[1000px]">
             {t.helicopter.facts.map((f) => (
