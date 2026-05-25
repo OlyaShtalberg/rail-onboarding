@@ -102,8 +102,8 @@ const accessRows: AccessRow[] = [
   { tool: "JupyterHub", linkText: "link from @Yuri Vorontsov", access: "@Yuri Vorontsov" },
   {
     tool: "Jira",
-    link: { label: "rezolvetech.atlassian.net", href: "https://rezolvetech.atlassian.net" },
-    access: "@Umer",
+    link: { label: "rezolvetech.atlassian.net · default board: LLM", href: "https://rezolvetech.atlassian.net" },
+    access: "@Umer · other boards on request",
   },
   {
     tool: "Confluence",
@@ -259,6 +259,8 @@ const content = {
         { label: "rezolve.com — general look at how we appear externally", href: "https://rezolve.com" },
         { label: "PRD: Adaptive AI Sales Agent Demo (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5581275160/PRD+Adaptive+AI+Sales+Agent+Demo" },
         { label: "Fine-Tuning Roadmap (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5485920843/Fine-Tuning+Roadmap" },
+        { label: "RAiL weekly status (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5275058249" },
+        { label: "Conversational Commerce Benchmark (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL" },
       ],
     },
     access: {
@@ -438,6 +440,8 @@ const content = {
         { label: "rezolve.com — общее знакомство с тем, как мы выглядим во внешнем мире", href: "https://rezolve.com" },
         { label: "PRD: Adaptive AI Sales Agent Demo (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5581275160/PRD+Adaptive+AI+Sales+Agent+Demo" },
         { label: "Fine-Tuning Roadmap (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5485920843/Fine-Tuning+Roadmap" },
+        { label: "Weekly status команды RAiL (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5275058249" },
+        { label: "Conversational Commerce Benchmark (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL" },
       ],
     },
     access: {
