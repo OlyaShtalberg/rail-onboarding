@@ -308,7 +308,7 @@ const content = {
       ownershipBody: "By default, accepting a task means accepting ownership and responsibility for the outcome. The ideal task acknowledgement:",
       steps: [
         "Rephrase the task in your own words — confirm we mean the same thing.",
-        "Question and push back. You don't just have the right to disagree — you have the responsibility to. Challenge the task, propose alternatives.",
+        "Question and push back. You don't just have permission to ask questions — you have the opportunity, and the responsibility, to disagree with the task and propose alternatives.",
         "Propose your own timeline.",
         "Own the outcome: if the proposed tools don't get you there — come back to the requester with questions or problems, propose another path.",
         "When done, post in Slack with tags of potentially interested people.",
@@ -489,7 +489,7 @@ const content = {
       ownershipBody: "По умолчанию, принимая задачу — принимаешь оунершип и ответственность за результат. Идеальный ответ на задачу:",
       steps: [
         "Переспроси задачу в своей формулировке — убедись, что задачу понимаем одинаково.",
-        "Сомневайся и возражай. У тебя не просто право, а обязанность не соглашаться. Квесчени задачи, предлагай альтернативы.",
+        "Сомневайся и возражай. У тебя есть не только право, но и возможность задавать вопросы — и обязанность к задачам: говорить, если не согласен, и предлагать альтернативные варианты.",
         "Предложи свой таймлайн.",
         "Неси ответственность за результат: если результат не достигается предложенными инструментами — приди к репортёру с вопросами и проблемами, предложи другое решение.",
         "По завершению — пиши в Slack с тегами потенциально заинтересованных лиц.",
