@@ -216,27 +216,35 @@ const content = {
     },
     helicopter: {
       h2: "Helicopter View — what we're building",
-      body: (
+      tagline: "We're Rezolve AI Lab. We fine-tune open-weight models.",
+      facts: [
+        { label: "Who we are", value: "AI Lab inside Rezolve" },
+        { label: "What we do", value: "Fine-tune open-weight models · multi tool calling" },
+        { label: "Where they live", value: "Brainpowa Model Garden" },
+      ],
+      para1: (
         <>
-          Rezolve AI builds an <strong>Adaptive AI Sales Agent</strong> — a conversational commerce experience where AI is
-          the primary shopping interface, not a chatbot layered on top. The agent adapts the UI in real time based on user
-          intent, conversation history, and context.
+          RAiL (Rezolve AI Lab) is the <strong>AI lab inside Rezolve</strong>. We fine-tune{" "}
+          <strong>open-weight models</strong> — for search, multi tool calling, and conversation — and assemble them into{" "}
+          <strong>composable building blocks</strong> that plug into different products, for different customers, across
+          different verticals.
         </>
       ),
-      facts: [
-        { label: "Verticals", value: "Fashion · Grocery" },
-        { label: "Input", value: "Text · Voice · Image" },
-        { label: "Capabilities", value: "Multilingual · agent orchestration · grounding · upsell · checkout" },
-      ],
-      ownership: (
+      para2: (
         <>
-          The RAiL team (Rezolve AI Lab) owns the <strong>model layer</strong>: fine-tuning, dataset generation,
-          evaluation, and benchmarking of <strong>brainpowa</strong> — our custom conversational LLM.
+          Our tuned models are hosted on <strong>Brainpowa Model Garden</strong> — where we host and serve fine-tuned
+          open-weight models in production.
+        </>
+      ),
+      para3: (
+        <>
+          <strong>Right now</strong> — we're shipping <strong>Super Demo</strong>, showing the assistant end-to-end on{" "}
+          <strong>grocery</strong> and <strong>fashion</strong> verticals.
         </>
       ),
       links: [
-        { label: "PRD: Adaptive AI Sales Agent Demo", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5581275160/PRD+Adaptive+AI+Sales+Agent+Demo" },
-        { label: "rezolve.ai — product overview", href: "https://rezolve.ai" },
+        { label: "rezolve.com — general look at how we appear externally", href: "https://rezolve.com" },
+        { label: "PRD: Adaptive AI Sales Agent Demo (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5581275160/PRD+Adaptive+AI+Sales+Agent+Demo" },
         { label: "Fine-Tuning Roadmap (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5485920843/Fine-Tuning+Roadmap" },
       ],
     },
@@ -366,27 +374,35 @@ const content = {
     },
     helicopter: {
       h2: "Helicopter View — что мы строим",
-      body: (
+      tagline: "Мы Rezolve AI Lab. Мы файнтюним open-weight модели.",
+      facts: [
+        { label: "Кто мы", value: "AI-лаборатория внутри Rezolve" },
+        { label: "Что делаем", value: "Файнтюним open-weight модели · multi tool calling" },
+        { label: "Где они живут", value: "Brainpowa Model Garden" },
+      ],
+      para1: (
         <>
-          Rezolve AI строит <strong>Adaptive AI Sales Agent</strong> — conversational commerce, где AI — это
-          первичный интерфейс покупки, а не чат-бот поверх сайта. Агент адаптирует UI в реальном времени под intent
-          пользователя, историю диалога и контекст.
+          RAiL (Rezolve AI Lab) — это <strong>AI-лаборатория внутри Rezolve</strong>. Мы файнтюним{" "}
+          <strong>open-weight модели</strong> — для поиска, multi tool calling и диалога — и собираем из них{" "}
+          <strong>составные кирпичики</strong>, которые подключаются к разным продуктам, для разных клиентов, в разных
+          вертикалях.
         </>
       ),
-      facts: [
-        { label: "Вертикали", value: "Fashion · Grocery" },
-        { label: "Input", value: "Текст · Голос · Картинка" },
-        { label: "Capabilities", value: "Multilingual · agent orchestration · grounding · upsell · checkout" },
-      ],
-      ownership: (
+      para2: (
         <>
-          Команда RAiL отвечает за <strong>model layer</strong>: fine-tuning, генерация датасетов, evaluation и
-          бенчмаркинг <strong>brainpowa</strong> — нашей собственной conversational LLM.
+          Наши тюнингованные модели хостятся в <strong>Brainpowa Model Garden</strong> — где мы хостим и сервим
+          fine-tuned open-weight модели в production.
+        </>
+      ),
+      para3: (
+        <>
+          <strong>Сейчас</strong> — выкатываем <strong>Super Demo</strong>, показываем ассистента end-to-end на
+          вертикалях <strong>grocery</strong> и <strong>fashion</strong>.
         </>
       ),
       links: [
-        { label: "PRD: Adaptive AI Sales Agent Demo", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5581275160/PRD+Adaptive+AI+Sales+Agent+Demo" },
-        { label: "rezolve.ai — продуктовый обзор", href: "https://rezolve.ai" },
+        { label: "rezolve.com — общее знакомство с тем, как мы выглядим во внешнем мире", href: "https://rezolve.com" },
+        { label: "PRD: Adaptive AI Sales Agent Demo (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5581275160/PRD+Adaptive+AI+Sales+Agent+Demo" },
         { label: "Fine-Tuning Roadmap (Confluence)", href: "https://rezolvetech.atlassian.net/wiki/spaces/RAIL/pages/5485920843/Fine-Tuning+Roadmap" },
       ],
     },
@@ -660,8 +676,15 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-[1100px] mx-auto px-6">
           <SectionHeader title={t.helicopter.h2} />
-          <p className="text-[16px] mb-6 max-w-[760px]">{t.helicopter.body}</p>
-          <div className="grid sm:grid-cols-3 gap-5 mb-6 max-w-[820px]">
+
+          <p
+            className="text-[22px] md:text-[26px] font-bold mb-10 max-w-[820px] text-[var(--color-navy)] leading-[1.25]"
+            style={{ fontFamily: "var(--font-manrope)" }}
+          >
+            {t.helicopter.tagline}
+          </p>
+
+          <div className="grid sm:grid-cols-3 gap-5 mb-10 max-w-[1000px]">
             {t.helicopter.facts.map((f) => (
               <div key={f.label} className="card p-5">
                 <p className="overline mb-1.5">{f.label}</p>
@@ -669,11 +692,22 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-[16px] mb-6 max-w-[760px]">{t.helicopter.ownership}</p>
+
+          <div className="space-y-4 max-w-[780px] text-[15px] leading-[1.7] mb-8">
+            <p>{t.helicopter.para1}</p>
+            <p>{t.helicopter.para2}</p>
+            <p>{t.helicopter.para3}</p>
+          </div>
+
           <ul className="space-y-2">
             {t.helicopter.links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} target="_blank" rel="noreferrer" className="text-[var(--color-blue)] hover:text-[var(--color-navy)] hover:underline">
+                <a
+                  href={l.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[var(--color-blue)] hover:text-[var(--color-navy)] hover:underline"
+                >
                   → {l.label}
                 </a>
               </li>
