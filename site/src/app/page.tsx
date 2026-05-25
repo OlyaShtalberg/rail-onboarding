@@ -381,7 +381,7 @@ const content = {
     },
     pets: {
       overline: "Last but not least",
-      overline2: "The team behind the team — emotional support team",
+      overline2: "Emotional support team",
       sub: (
         <>
           Want your pet on the page? Send a photo to <strong>@Olya Shtalberg</strong> on Slack.
@@ -560,7 +560,7 @@ const content = {
     },
     pets: {
       overline: "Last but not least",
-      overline2: "Команда за командой — emotional support team",
+      overline2: "Emotional support team",
       sub: (
         <>
           Хочешь, чтобы твой питомец был на странице? Пришли его фото <strong>@Olya Shtalberg</strong> в Slack.
