@@ -381,7 +381,7 @@ const content = {
     },
     pets: {
       overline: "Last but not least",
-      h2: "The team behind the team.",
+      overline2: "The team behind the team — emotional support team",
       sub: (
         <>
           Want your pet on the page? Send a photo to <strong>@Olya Shtalberg</strong> on Slack.
@@ -560,7 +560,7 @@ const content = {
     },
     pets: {
       overline: "Last but not least",
-      h2: "Команда за командой.",
+      overline2: "Команда за командой — emotional support team",
       sub: (
         <>
           Хочешь, чтобы твой питомец был на странице? Пришли его фото <strong>@Olya Shtalberg</strong> в Slack.
@@ -958,15 +958,15 @@ export default function Home() {
       {/* LAST BUT NOT LEAST — PETS (warm beige, italic title) */}
       <section className="py-20 md:py-24" style={{ background: "#fdf6ec" }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <p className="overline mb-3" style={{ color: "#b8945c" }}>
+          <p className="overline mb-2" style={{ color: "#b8945c" }}>
             {t.pets.overline}
           </p>
-          <h2
-            className="text-[40px] md:text-[56px] font-extrabold mb-4 text-[var(--color-navy)]"
+          <p
+            className="text-[16px] md:text-[18px] mb-5 text-[var(--color-navy)]"
             style={{ fontFamily: "var(--font-manrope)", fontStyle: "italic" }}
           >
-            {t.pets.h2}
-          </h2>
+            {t.pets.overline2}
+          </p>
           <p className="text-[var(--color-gray)] mb-12 max-w-[560px] mx-auto">{t.pets.sub}</p>
 
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-8">
