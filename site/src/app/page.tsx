@@ -757,15 +757,6 @@ export default function Home() {
             {t.helicopter.tagline}
           </p>
 
-          <div className="grid sm:grid-cols-3 gap-5 mb-10 max-w-[1000px]">
-            {t.helicopter.facts.map((f) => (
-              <div key={f.label} className="card p-5">
-                <p className="overline mb-1.5">{f.label}</p>
-                <p className="text-[14px] font-bold text-[var(--color-navy)]">{f.value}</p>
-              </div>
-            ))}
-          </div>
-
           <div className="space-y-4 max-w-[780px] text-[15px] leading-[1.7] mb-8">
             <p>{t.helicopter.para1}</p>
             <p>{t.helicopter.para2}</p>
