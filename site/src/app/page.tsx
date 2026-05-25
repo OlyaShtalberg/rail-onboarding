@@ -216,30 +216,41 @@ const content = {
     },
     helicopter: {
       h2: "Helicopter View — what we're building",
-      tagline: "We're Rezolve AI Lab. We fine-tune open-weight models.",
+      tagline: "We're Rezolve AI Lab — the R&D arm inside Rezolve.",
+      diagram: {
+        outer: { title: "Rezolve", subtitle: "ecommerce company" },
+        middle: { title: "Rezolve AI Lab (RAiL)", subtitle: "R&D arm" },
+        inner: { title: "Our team", subtitle: "Fine-tuning · MaaS" },
+      },
       facts: [
-        { label: "Who we are", value: "AI Lab inside Rezolve" },
-        { label: "What we do", value: "Fine-tune open-weight models · multi tool calling" },
-        { label: "Where they live", value: "Brainpowa Model Garden" },
+        { label: "Who we are", value: "R&D lab inside Rezolve" },
+        { label: "What we do", value: "Fine-tune models · multi tool calling" },
+        { label: "Where they ship", value: "Brainpowa Model Garden + Microsoft Azure AI Foundry" },
       ],
       para1: (
         <>
-          RAiL (Rezolve AI Lab) is the <strong>AI lab inside Rezolve</strong>. We fine-tune{" "}
-          <strong>open-weight models</strong> — for search, multi tool calling, and conversation — and assemble them into{" "}
-          <strong>composable building blocks</strong> that plug into different products, for different customers, across
-          different verticals.
+          <strong>Rezolve</strong> is an ecommerce company growing by acquiring e-commerce search startups — rolling up
+          customer base and tech.
         </>
       ),
       para2: (
         <>
-          Our tuned models are hosted on <strong>Brainpowa Model Garden</strong> — where we host and serve fine-tuned
-          open-weight models in production.
+          Inside Rezolve sits <strong>Rezolve AI Lab (RAiL)</strong> — the R&D arm. We're the AI team inside this AI lab
+          inside that ecommerce company.
         </>
       ),
       para3: (
         <>
-          <strong>Right now</strong> — we're shipping <strong>Super Demo</strong>, showing the assistant end-to-end on{" "}
-          <strong>grocery</strong> and <strong>fashion</strong> verticals.
+          We fine-tune <strong>models</strong> — for search, multi tool calling, and conversation — and assemble them
+          into <strong>composable building blocks</strong> that plug into different products, for different customers,
+          across different verticals. Hosted in <strong>Brainpowa Model Garden</strong>. Distributed externally via{" "}
+          <strong>Microsoft Azure AI Foundry</strong> as Models-as-a-Service (3 models published, more coming).
+        </>
+      ),
+      para4: (
+        <>
+          <strong>Right now</strong> — we're shipping <strong>Super Demo</strong>: end-to-end agent on{" "}
+          <strong>grocery</strong> (Sainsbury's) and <strong>fashion</strong> (Harrods) verticals.
         </>
       ),
       links: [
@@ -374,30 +385,41 @@ const content = {
     },
     helicopter: {
       h2: "Helicopter View — что мы строим",
-      tagline: "Мы Rezolve AI Lab. Мы файнтюним open-weight модели.",
+      tagline: "Мы Rezolve AI Lab — R&D-подразделение внутри Rezolve.",
+      diagram: {
+        outer: { title: "Rezolve", subtitle: "ecommerce-компания" },
+        middle: { title: "Rezolve AI Lab (RAiL)", subtitle: "R&D-подразделение" },
+        inner: { title: "Наша команда", subtitle: "Fine-tuning · MaaS" },
+      },
       facts: [
-        { label: "Кто мы", value: "AI-лаборатория внутри Rezolve" },
-        { label: "Что делаем", value: "Файнтюним open-weight модели · multi tool calling" },
-        { label: "Где они живут", value: "Brainpowa Model Garden" },
+        { label: "Кто мы", value: "R&D-лаборатория внутри Rezolve" },
+        { label: "Что делаем", value: "Файнтюним модели · multi tool calling" },
+        { label: "Где они живут", value: "Brainpowa Model Garden + Microsoft Azure AI Foundry" },
       ],
       para1: (
         <>
-          RAiL (Rezolve AI Lab) — это <strong>AI-лаборатория внутри Rezolve</strong>. Мы файнтюним{" "}
-          <strong>open-weight модели</strong> — для поиска, multi tool calling и диалога — и собираем из них{" "}
-          <strong>составные кирпичики</strong>, которые подключаются к разным продуктам, для разных клиентов, в разных
-          вертикалях.
+          <strong>Rezolve</strong> — ecommerce-компания, растёт через покупку поисковых ecommerce-стартапов, собирая
+          клиентскую базу и технологии.
         </>
       ),
       para2: (
         <>
-          Наши тюнингованные модели хостятся в <strong>Brainpowa Model Garden</strong> — где мы хостим и сервим
-          fine-tuned open-weight модели в production.
+          Внутри Rezolve есть <strong>Rezolve AI Lab (RAiL)</strong> — R&D-подразделение. Мы — AI-команда внутри этой
+          AI-лаборатории внутри ecommerce-компании.
         </>
       ),
       para3: (
         <>
-          <strong>Сейчас</strong> — выкатываем <strong>Super Demo</strong>, показываем ассистента end-to-end на
-          вертикалях <strong>grocery</strong> и <strong>fashion</strong>.
+          Мы файнтюним <strong>модели</strong> — для поиска, multi tool calling и диалога — и собираем из них{" "}
+          <strong>составные кирпичики</strong>, которые подключаются к разным продуктам, для разных клиентов, в разных
+          вертикалях. Хостинг в <strong>Brainpowa Model Garden</strong>. Дистрибуция наружу через{" "}
+          <strong>Microsoft Azure AI Foundry</strong> как Models-as-a-Service (3 модели уже опубликованы, ещё в работе).
+        </>
+      ),
+      para4: (
+        <>
+          <strong>Сейчас</strong> — выкатываем <strong>Super Demo</strong>: end-to-end ассистент на вертикалях{" "}
+          <strong>grocery</strong> (Sainsbury's) и <strong>fashion</strong> (Harrods).
         </>
       ),
       links: [
@@ -684,6 +706,40 @@ export default function Home() {
             {t.helicopter.tagline}
           </p>
 
+          {/* Nested diagram: Rezolve → RAiL → Our team */}
+          <div className="mb-12 max-w-[680px] mx-auto sm:mx-0">
+            <div className="rounded-2xl bg-[var(--color-bg)] border border-[var(--color-border)] p-5 md:p-7">
+              <div className="text-center mb-4">
+                <p className="text-[18px] font-bold text-[var(--color-charcoal)]" style={{ fontFamily: "var(--font-manrope)" }}>
+                  {t.helicopter.diagram.outer.title}
+                </p>
+                <p className="text-[11px] uppercase tracking-[1.5px] text-[var(--color-gray)] mt-0.5">
+                  {t.helicopter.diagram.outer.subtitle}
+                </p>
+              </div>
+
+              <div className="rounded-xl bg-white border-[2px] border-[var(--color-blue)] p-5 md:p-6">
+                <div className="text-center mb-4">
+                  <p className="text-[17px] font-bold text-[var(--color-blue)]" style={{ fontFamily: "var(--font-manrope)" }}>
+                    {t.helicopter.diagram.middle.title}
+                  </p>
+                  <p className="text-[11px] uppercase tracking-[1.5px] text-[var(--color-gray)] mt-0.5">
+                    {t.helicopter.diagram.middle.subtitle}
+                  </p>
+                </div>
+
+                <div className="rounded-lg bg-[var(--color-navy)] text-white px-4 py-3.5 text-center mx-4 sm:mx-10">
+                  <p className="text-[15px] font-bold" style={{ fontFamily: "var(--font-manrope)" }}>
+                    {t.helicopter.diagram.inner.title}
+                  </p>
+                  <p className="text-[10.5px] uppercase tracking-[1.5px] opacity-80 mt-0.5">
+                    {t.helicopter.diagram.inner.subtitle}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid sm:grid-cols-3 gap-5 mb-10 max-w-[1000px]">
             {t.helicopter.facts.map((f) => (
               <div key={f.label} className="card p-5">
@@ -697,6 +753,7 @@ export default function Home() {
             <p>{t.helicopter.para1}</p>
             <p>{t.helicopter.para2}</p>
             <p>{t.helicopter.para3}</p>
+            <p>{t.helicopter.para4}</p>
           </div>
 
           <ul className="space-y-2">
