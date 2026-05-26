@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezolve — Design System</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f7f8fa;
+    color: #001E60;
+    padding: 48px 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #001E60;
+  }
+  .page-header .brand-dot {
+    width: 36px; height: 36px;
+    background: #001E60;
+    border-radius: 8px;
+  }
+  .page-header h1 {
+    font-family: 'Manrope', 'Inter Tight', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .page-header .meta {
+    margin-left: auto;
+    font-size: 12px;
+    color: #478BC9;
+    font-weight: 500;
+  }
+
+  /* Section */
+  section { margin-bottom: 64px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #478BC9;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Manrope', 'Inter Tight', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    color: #001E60;
+  }
+
+  /* Colors */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .color-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+  }
+  .color-swatch {
+    width: 100%;
+    height: 100px;
+  }
+  .color-info {
+    padding: 12px 14px;
+  }
+  .color-name {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .color-hex {
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    font-size: 12px;
+    color: #2D3748;
+    margin-bottom: 4px;
+  }
+  .color-role {
+    font-size: 11px;
+    color: #718096;
+    line-height: 1.4;
+  }
+
+  /* Typography */
+  .type-samples { display: flex; flex-direction: column; gap: 24px; }
+  .type-row {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .type-meta {
+    min-width: 130px;
+    font-size: 11px;
+    color: #718096;
+    line-height: 1.6;
+  }
+  .type-meta strong { display: block; color: #001E60; font-size: 12px; margin-bottom: 2px; }
+  .type-sample-h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: #001E60;
+    letter-spacing: -1px;
+    line-height: 1;
+  }
+  .type-sample-h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #001E60;
+    letter-spacing: -0.4px;
+  }
+  .type-sample-label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #478BC9;
+  }
+  .type-sample-body {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 15px;
+    color: #2D3748;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+  .type-sample-gradient {
+    font-family: 'Manrope', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+    background: linear-gradient(90deg, #4A7FC1 0%, #00C8E8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Font cards */
+  .font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+  .font-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+  }
+  .font-card .role { font-size: 11px; color: #718096; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .font-card .name { font-size: 15px; font-weight: 700; color: #001E60; margin-bottom: 10px; }
+  .font-card .preview-manrope { font-family: 'Manrope', sans-serif; font-size: 26px; font-weight: 800; color: #001E60; }
+  .font-card .preview-inter { font-family: 'Inter Tight', 'Inter', sans-serif; font-size: 17px; color: #2D3748; line-height: 1.5; }
+
+  /* Buttons */
+  .button-grid { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .button-showcase {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 280px;
+  }
+  .button-showcase .btn-label {
+    font-size: 11px;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: #001E60;
+    color: #fff;
+    border-radius: 58px;
+    padding: 14px 28px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow:
+      rgba(0,0,0,0.016) 0px 0.22px 0.67px,
+      rgba(0,0,0,0.027) 0px 0.98px 1.39px,
+      rgba(0,0,0,0.035) 0px 2.4px 2.76px,
+      rgba(0,0,0,0.043) 0px 4.62px 5.41px,
+      rgba(0,0,0,0.055) 0px 7.78px 9.96px,
+      rgba(0,0,0,0.07) 0px 12px 17px;
+    cursor: default;
+  }
+  .btn-secondary {
+    display: inline-block;
+    background: #fff;
+    color: #001E60;
+    border-radius: 58px;
+    padding: 14px 28px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow:
+      rgba(0,0,0,0.016) 0px 0.22px 0.67px,
+      rgba(0,0,0,0.027) 0px 0.98px 1.39px,
+      rgba(0,0,0,0.035) 0px 2.4px 2.76px,
+      rgba(0,0,0,0.043) 0px 4.62px 5.41px,
+      rgba(0,0,0,0.055) 0px 7.78px 9.96px,
+      rgba(0,0,0,0.07) 0px 12px 17px;
+    cursor: default;
+    border: 1.5px solid #e2e8f0;
+  }
+  .btn-specs {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+    min-width: 240px;
+  }
+  .btn-specs h4 { font-size: 12px; font-weight: 700; color: #001E60; margin-bottom: 10px; }
+  .btn-specs table { width: 100%; border-collapse: collapse; }
+  .btn-specs td { font-size: 12px; padding: 3px 0; color: #2D3748; }
+  .btn-specs td:first-child { color: #718096; width: 110px; }
+  .btn-specs code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 11px;
+    background: #f0f4ff;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #001E60;
+  }
+
+  /* Spacing */
+  .spacing-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+  .spacing-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 180px;
+  }
+  .spacing-visual {
+    background: #478BC9;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .spacing-meta .val { font-weight: 700; font-size: 14px; color: #001E60; }
+  .spacing-meta .desc { font-size: 11px; color: #718096; margin-top: 2px; }
+
+  /* Products */
+  .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .product-card {
+    background: #001E60;
+    color: #fff;
+    border-radius: 12px;
+    padding: 24px 22px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.12);
+  }
+  .product-card .prod-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .product-card .prod-desc { font-size: 13px; opacity: 0.7; line-height: 1.5; }
+
+  /* Tone */
+  .tone-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+  .tone-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+  }
+  .tone-card .t-label { font-size: 11px; color: #478BC9; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 6px; }
+  .tone-card .t-val { font-size: 15px; font-weight: 700; color: #001E60; }
+
+  .examples-list { list-style: none; }
+  .examples-list li {
+    padding: 10px 16px;
+    border-left: 3px solid #478BC9;
+    margin-bottom: 8px;
+    background: #fff;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    font-style: italic;
+    color: #2D3748;
+    box-shadow: 0 1px 3px rgba(0,30,96,0.06);
+  }
+
+  /* Logo */
+  .logo-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 4px rgba(0,30,96,0.08);
+    display: inline-flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 340px;
+  }
+  .logo-card img { height: 36px; object-fit: contain; object-position: left; }
+  .logo-card .logo-desc { font-size: 11px; color: #718096; }
+
+  /* Footer */
+  footer {
+    margin-top: 72px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+    font-size: 11px;
+    color: #718096;
+  }
+
+  @media (max-width: 600px) {
+    .font-grid, .button-grid { grid-template-columns: 1fr; flex-direction: column; }
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="page-header">
+  <div class="brand-dot"></div>
+  <h1>Rezolve — Design System</h1>
+  <span class="meta">rezolve.com · April 2026</span>
+</header>
+
+<!-- COLORS -->
+<section>
+  <div class="section-label">01 — Colors</div>
+  <div class="section-title">Color Palette</div>
+  <div class="color-grid">
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#001E60;"></div>
+      <div class="color-info">
+        <div class="color-name">Brand Navy</div>
+        <div class="color-hex">#001E60</div>
+        <div class="color-role">Primary brand color: text, buttons, accents, links</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#478BC9;"></div>
+      <div class="color-info">
+        <div class="color-name">Blue</div>
+        <div class="color-hex">#478BC9</div>
+        <div class="color-role">Secondary accent: section labels, interactive elements</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#2D3748;"></div>
+      <div class="color-info">
+        <div class="color-name">Dark Charcoal</div>
+        <div class="color-hex">#2D3748</div>
+        <div class="color-role">Secondary text, icons</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#FFFFFF; border: 1px solid #e2e8f0;"></div>
+      <div class="color-info">
+        <div class="color-name">White</div>
+        <div class="color-hex">#FFFFFF</div>
+        <div class="color-role">Page background, text on dark surfaces, secondary buttons</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background:#718096;"></div>
+      <div class="color-info">
+        <div class="color-name">Gray</div>
+        <div class="color-hex">#718096</div>
+        <div class="color-role">Supporting text, descriptions, placeholders</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background: linear-gradient(135deg, #001E60 0%, #478BC9 100%);"></div>
+      <div class="color-info">
+        <div class="color-name">Brand Gradient</div>
+        <div class="color-hex">#001E60 → #478BC9</div>
+        <div class="color-role">Decorative elements, section backgrounds</div>
+      </div>
+    </div>
+
+    <div class="color-card">
+      <div class="color-swatch" style="background: linear-gradient(90deg, #4A7FC1 0%, #00C8E8 100%);"></div>
+      <div class="color-info">
+        <div class="color-name">Text Gradient</div>
+        <div class="color-hex">#4A7FC1 → #00C8E8</div>
+        <div class="color-role">Gradient fill on hero heading keywords</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section>
+  <div class="section-label">02 — Typography</div>
+  <div class="section-title">Fonts & Sizes</div>
+
+  <div class="font-grid">
+    <div class="font-card">
+      <div class="role">Headings</div>
+      <div class="name">Manrope</div>
+      <div class="preview-manrope">Aa Bb Cc</div>
+    </div>
+    <div class="font-card">
+      <div class="role">Paragraphs / Body</div>
+      <div class="name">Inter Tight</div>
+      <div class="preview-inter">Reignite the love<br>for retail with AI.</div>
+    </div>
+  </div>
+
+  <div class="type-samples">
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>H1 — Hero</strong>
+        Manrope 800<br>60px / ~1.1lh
+      </div>
+      <div class="type-sample-h1">AI for Commerce</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Section Label</strong>
+        Inter Tight 700<br>11px / uppercase / 2px spacing<br>color: #478BC9
+      </div>
+      <div class="type-sample-label">Conversational AI</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>H2 — Section</strong>
+        Manrope 700<br>~28–36px
+      </div>
+      <div class="type-sample-h2">Create Unified<br>Shopping Experiences</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Body</strong>
+        Inter Tight 400<br>15px / 1.6lh<br>color: #2D3748
+      </div>
+      <div class="type-sample-body">Reignite the love for retail with human-like conversations, smarter search and product discovery – optimized for revenue.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <strong>Gradient Text</strong>
+        Manrope 800<br>Used on hero keywords<br>#4A7FC1 → #00C8E8<br>(left-to-right)
+      </div>
+      <div class="type-sample-gradient">Search to Checkout</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUTTONS -->
+<section>
+  <div class="section-label">03 — Buttons</div>
+  <div class="section-title">Button Components</div>
+  <div class="button-grid">
+
+    <div class="button-showcase">
+      <div class="btn-label">Primary CTA</div>
+      <div class="btn-primary">Get a Product Tour</div>
+      <div class="btn-primary" style="width:fit-content;">Explore more</div>
+    </div>
+
+    <div class="button-showcase">
+      <div class="btn-label">Secondary CTA</div>
+      <div class="btn-secondary" style="width:fit-content;">Request a Demo</div>
+      <div class="btn-secondary" style="width:fit-content;">Read More</div>
+    </div>
+
+    <div class="btn-specs">
+      <h4>Specifications</h4>
+      <table>
+        <tr><td>Border-radius</td><td><code>58px</code> (pill)</td></tr>
+        <tr><td>Padding</td><td><code>14px 28px</code></td></tr>
+        <tr><td>Font</td><td><code>Inter Tight 600</code></td></tr>
+        <tr><td>Font size</td><td><code>14px</code></td></tr>
+        <tr><td>Primary bg</td><td><code>#001E60</code></td></tr>
+        <tr><td>Primary text</td><td><code>#FFFFFF</code></td></tr>
+        <tr><td>Secondary bg</td><td><code>#FFFFFF</code></td></tr>
+        <tr><td>Secondary text</td><td><code>#001E60</code></td></tr>
+        <tr><td>Shadow</td><td>6-layer, rgba(0,0,0,0.016–0.07)</td></tr>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPACING -->
+<section>
+  <div class="section-label">04 — Spacing</div>
+  <div class="section-title">Spacing & Radius</div>
+  <div class="spacing-grid">
+
+    <div class="spacing-card">
+      <div class="spacing-visual" style="width:4px; height:32px;"></div>
+      <div class="spacing-meta">
+        <div class="val">4px — base unit</div>
+        <div class="desc">Grid base step</div>
+      </div>
+    </div>
+
+    <div class="spacing-card">
+      <div class="spacing-visual" style="width:8px; height:32px;"></div>
+      <div class="spacing-meta">
+        <div class="val">8px</div>
+        <div class="desc">Inner padding for small elements</div>
+      </div>
+    </div>
+
+    <div class="spacing-card">
+      <div class="spacing-visual" style="width:16px; height:32px;"></div>
+      <div class="spacing-meta">
+        <div class="val">16px</div>
+        <div class="desc">Standard gap</div>
+      </div>
+    </div>
+
+    <div class="spacing-card">
+      <div class="spacing-visual" style="width:32px; height:32px;"></div>
+      <div class="spacing-meta">
+        <div class="val">32px</div>
+        <div class="desc">Section padding</div>
+      </div>
+    </div>
+
+    <div class="spacing-card">
+      <div class="spacing-visual" style="width:4px; height:32px; border-radius:4px;"></div>
+      <div class="spacing-meta">
+        <div class="val">4px — radius</div>
+        <div class="desc">Cards, input fields</div>
+      </div>
+    </div>
+
+    <div class="spacing-card">
+      <div class="spacing-visual" style="width:32px; height:32px; border-radius:58px;"></div>
+      <div class="spacing-meta">
+        <div class="val">58px — radius</div>
+        <div class="desc">Buttons (pill)</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOGO -->
+<section>
+  <div class="section-label">05 — Logo</div>
+  <div class="section-title">Brand Assets</div>
+  <div class="logo-card">
+    <img src="https://rezolve.com/wp-content/uploads/2025/07/rezolve-logo-12-2025.svg" alt="Rezolve Logo">
+    <div class="logo-desc">
+      Primary logo (SVG)<br>
+      Favicon: <code style="font-size:10px;">/uploads/2025/02/cropped-rezolve-ai-favicon-32x32.png</code>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section>
+  <div class="section-label">06 — Products</div>
+  <div class="section-title">Product Sub-brands</div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="prod-name">Brain Commerce</div>
+      <div class="prod-desc">Conversational commerce, search and product discovery. Personalized AI-driven recommendations.</div>
+    </div>
+    <div class="product-card">
+      <div class="prod-name">Brain Checkout</div>
+      <div class="prod-desc">One-click checkout, cart management, crypto payments support, curbside & drive-thru.</div>
+    </div>
+    <div class="product-card" style="background: linear-gradient(135deg, #001E60, #0a2d8a);">
+      <div class="prod-name">brainpowa</div>
+      <div class="prod-desc">Proprietary LLM trained on ecommerce data. Zero hallucinations. Always written lowercase.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TONE -->
+<section>
+  <div class="section-label">07 — Brand Voice</div>
+  <div class="section-title">Tone of Voice</div>
+  <div class="tone-grid" style="margin-bottom:24px;">
+    <div class="tone-card">
+      <div class="t-label">Tone</div>
+      <div class="t-val">Professional</div>
+    </div>
+    <div class="tone-card">
+      <div class="t-label">Energy</div>
+      <div class="t-val">Medium</div>
+    </div>
+    <div class="tone-card">
+      <div class="t-label">Audience</div>
+      <div class="t-val">B2B — retail & ecommerce</div>
+    </div>
+    <div class="tone-card">
+      <div class="t-label">Spelling</div>
+      <div class="t-val">Rezolve Ai (lowercase i)</div>
+    </div>
+  </div>
+
+  <p style="font-size:12px; color:#718096; margin-bottom:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Headline examples</p>
+  <ul class="examples-list">
+    <li>"AI That Transforms Commerce from Search to Checkout"</li>
+    <li>"Reignite the love for retail with human-like conversations"</li>
+    <li>"We've Solved for Bad LLMs"</li>
+    <li>"Create Unified Shopping Experiences That Turn Shopper Intent Into Purchase"</li>
+  </ul>
+
+  <p style="font-size:12px; color:#718096; margin-top:20px; margin-bottom:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">Section pattern</p>
+  <ul class="examples-list">
+    <li>Overline (small uppercase label) → H2 (large heading) → Body paragraph → CTA button</li>
+    <li>Emphasis on metrics: +10% Online Revenue · +25% Conversions · &lt;5min Wait Times</li>
+  </ul>
+</section>
+
+<!-- TECH -->
+<section>
+  <div class="section-label">08 — Tech Stack</div>
+  <div class="section-title">Tech Notes</div>
+  <div class="tone-grid">
+    <div class="tone-card">
+      <div class="t-label">CMS</div>
+      <div class="t-val">WordPress</div>
+    </div>
+    <div class="tone-card">
+      <div class="t-label">Page Builder</div>
+      <div class="t-val">Elementor 4.0.2</div>
+    </div>
+    <div class="tone-card">
+      <div class="t-label">Fonts</div>
+      <div class="t-val">Google Fonts (swap)</div>
+    </div>
+    <div class="tone-card">
+      <div class="t-label">Color Scheme</div>
+      <div class="t-val">Light</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Compiled from rezolve.com analysis · April 2026 · Update on site redesign
+</footer>
+
+</body>
+</html>
