@@ -29,7 +29,7 @@ const orgChart: { ceo: { name: string; role: string }; branches: OrgBranch[] } =
         { name: "Tim Tang", role: "Data Scientist" },
         { name: "Tom Bornar", role: "ML Engineer" },
         { name: "Marcin Figiewicz", role: "ML / Software Engineer" },
-        { name: "Angelica Turla", role: "ML Engineer" },
+        { name: "Angelica Turla", role: "AI Engineer" },
         { name: "Wojciech Dobry", role: "UI Engineer" },
       ],
     },
@@ -51,6 +51,7 @@ const orgChart: { ceo: { name: string; role: string }; branches: OrgBranch[] } =
         { name: "Hossam Zawbaa", role: "ML Engineer" },
         { name: "Eli Briskin", role: "Business and Data Analyst" },
         { name: "Sam Hart", role: "AI / ML Engineer" },
+        { name: "Serhii Chashchukhin", role: "Software Engineer" },
       ],
     },
     {
@@ -365,6 +366,8 @@ const content = {
         title: "For your AI agent",
         sub: "Drop these into Cursor / Claude as Project Knowledge. The agent will know the team, terms, tools, and which skills to call.",
         button: "Download AI pack (ZIP, 336 KB)",
+        repoLabel: "Or browse / clone the meta-repo on GitHub →",
+        repoHref: "https://github.com/rezolved/rail-onboarding",
         files: [
           "onboarding-rail.md — this page in markdown",
           "glossary.md — 45 people + 80 technical terms · RAG context for your agent",
@@ -551,6 +554,8 @@ const content = {
         title: "Для AI-агента",
         sub: "Подключи как Project Knowledge в Cursor / Claude. Агент узнает команду, термины, инструменты и какие скиллы вызвать.",
         button: "Скачать AI pack (ZIP, 336 KB)",
+        repoLabel: "Или склонируй / посмотри meta-репо на GitHub →",
+        repoHref: "https://github.com/rezolved/rail-onboarding",
         files: [
           "onboarding-rail.md — эта страница в markdown",
           "glossary.md — 45 человек + 80 терминов · RAG для твоего агента",
@@ -941,6 +946,15 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-[var(--color-navy)] font-bold text-[14px] hover:bg-[var(--color-cyan)] transition-colors"
               >
                 ↓ {t.downloads.agent.button}
+              </a>
+              <a
+                href={t.downloads.agent.repoHref}
+                target="_blank"
+                rel="noreferrer"
+                className="block mt-4 text-[13px] font-semibold underline-offset-2 hover:underline"
+                style={{ color: "#7ee3f5" }}
+              >
+                {t.downloads.agent.repoLabel}
               </a>
               <ul className="mt-7 space-y-1.5 text-[13px]" style={{ color: "rgba(255,255,255,0.7)" }}>
                 {t.downloads.agent.files.map((f) => (
