@@ -290,7 +290,11 @@ const content = {
       ),
     },
     channels: { h2: "Slack channels to keep an eye on", cols: ["Channel", "Purpose"] },
-    calls: { h2: "Recurring calls", cols: ["When", "Event"] },
+    calls: {
+      h2: "Recurring calls",
+      sub: "Team is distributed across timezones — calls usually land in 9:00–17:00 GMT+1 (London time), with occasional exceptions.",
+      cols: ["When", "Event"],
+    },
     norms: {
       h2: "Working communication rules",
       avatars: (
@@ -471,7 +475,11 @@ const content = {
       ),
     },
     channels: { h2: "Slack-каналы, на которые подписаться", cols: ["Канал", "Назначение"] },
-    calls: { h2: "Регулярные созвоны", cols: ["Когда", "Что"] },
+    calls: {
+      h2: "Регулярные созвоны",
+      sub: "Команда — в разных часовых поясах. Созвоны обычно проходят в 9:00–17:00 GMT+1 (London time), бывают исключения.",
+      cols: ["Когда", "Что"],
+    },
     norms: {
       h2: "Рабочие нормы коммуникации",
       avatars: (
@@ -849,7 +857,7 @@ export default function Home() {
       {/* CALLS */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-[1100px] mx-auto px-6">
-          <SectionHeader title={t.calls.h2} />
+          <SectionHeader title={t.calls.h2} sub={t.calls.sub} />
           <Table
             cols={t.calls.cols as unknown as string[]}
             rows={calls}
