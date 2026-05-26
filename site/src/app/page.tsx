@@ -113,6 +113,7 @@ const accessRows: AccessRow[] = [
   { tool: "Notion", linkText: "invite by email", access: "@Olya Shtalberg" },
   { tool: "Azure", linkText: "MaaP / Foundry / clusters", access: "SRE — @Hrvoje" },
   { tool: "BambooHR", linkText: "invite by email", access: "@Tanya (HR)" },
+  { tool: "Navex", linkText: "HR compliance course — invite from HR", access: "@Tanya (HR)" },
   { tool: "Microsoft Teams", linkText: "email, calls, calendar — MS ecosystem", access: "@Tanya (HR)" },
 ];
 
@@ -265,7 +266,7 @@ const content = {
     },
     access: {
       h2: "Access & Tools",
-      sub: "The main tools you'll use day-to-day — Slack, GitHub, Jira, Confluence, Notion, Azure, JupyterHub, BambooHR, Teams. Click the link or ask the person on the right.",
+      sub: "The main tools you'll use day-to-day — Slack, GitHub, Jira, Confluence, Notion, Azure, JupyterHub, BambooHR, Navex, Teams. Click the link or ask the person on the right.",
       cols: ["Tool", "Link", "Access via"],
     },
     repos: {
@@ -450,7 +451,7 @@ const content = {
     },
     access: {
       h2: "Доступы и инструменты",
-      sub: "Основные инструменты, которыми будешь пользоваться ежедневно — Slack, GitHub, Jira, Confluence, Notion, Azure, JupyterHub, BambooHR, Teams. Жми по ссылке или спроси у человека справа.",
+      sub: "Основные инструменты, которыми будешь пользоваться ежедневно — Slack, GitHub, Jira, Confluence, Notion, Azure, JupyterHub, BambooHR, Navex, Teams. Жми по ссылке или спроси у человека справа.",
       cols: ["Инструмент", "Ссылка", "Доступ через"],
     },
     repos: {
