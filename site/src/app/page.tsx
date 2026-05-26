@@ -234,8 +234,8 @@ const content = {
       ],
       para1: (
         <>
-          <strong>Rezolve</strong> is an ecommerce company growing by acquiring e-commerce search startups — rolling up
-          customer base and tech.
+          <strong>Rezolve</strong> is a product company — we build AI for ecommerce. We grow by delivering smart search,
+          recommendations, and conversational commerce that retailers can actually use.
         </>
       ),
       para2: (
@@ -301,7 +301,8 @@ const content = {
       h2: "Working communication rules",
       avatars: (
         <>
-          <strong>Avatars.</strong> Set an avatar in Slack, Jira, Confluence, GitHub, Teams. Basic comms hygiene.
+          <strong>Profile setup.</strong> Set an avatar in Slack, Jira, Confluence, GitHub, Teams. Also fill in your{" "}
+          <strong>job title in Slack</strong> — it shows up next to your name, so people can place you fast. Basic comms hygiene.
         </>
       ),
       prs: (
@@ -422,8 +423,8 @@ const content = {
       ],
       para1: (
         <>
-          <strong>Rezolve</strong> — ecommerce-компания, растёт через покупку поисковых ecommerce-стартапов, собирая
-          клиентскую базу и технологии.
+          <strong>Rezolve</strong> — продуктовая компания, делаем AI для ecommerce. Растём за счёт того, что поставляем
+          ретейлерам smart search, рекомендации и conversational commerce — продукт, который работает.
         </>
       ),
       para2: (
@@ -489,7 +490,8 @@ const content = {
       h2: "Рабочие нормы коммуникации",
       avatars: (
         <>
-          <strong>Аватарки.</strong> Поставь аватар в Slack, Jira, Confluence, GitHub, Teams. Базовая гигиена коммуникации.
+          <strong>Профиль.</strong> Поставь аватар в Slack, Jira, Confluence, GitHub, Teams. И заполни{" "}
+          <strong>job title в Slack</strong> — он подписывается рядом с именем, людям проще тебя соотнести. Базовая гигиена коммуникации.
         </>
       ),
       prs: (
