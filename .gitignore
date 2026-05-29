@@ -12,3 +12,6 @@ out/
 
 # Env
 .env*.local
+
+# Video source (raw assets kept local; site serves site/public/video/)
+Dan-welcome/

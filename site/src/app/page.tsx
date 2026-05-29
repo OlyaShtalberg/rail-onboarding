@@ -767,6 +767,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* WELCOME VIDEO */}
+      <section className="pb-4 md:pb-8">
+        <div className="max-w-[1100px] mx-auto px-6">
+          <video
+            src={`${BASE}/video/Dan-welcome.mp4`}
+            controls
+            playsInline
+            preload="metadata"
+            className="w-full rounded-3xl shadow-lg border border-[var(--color-border)]"
+          />
+        </div>
+      </section>
+
       {/* HELICOPTER VIEW */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-[1100px] mx-auto px-6">
